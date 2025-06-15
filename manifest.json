@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Tab Tinder",
+  "version": "1.0",
+  "description": "Swipe left or right to close tabs - Tinder for your browser tabs!",
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "tabCapture"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tab Tinder"
+  }
+}
