@@ -77,39 +77,6 @@ class TabTinder {
       faviconImg.style.display = 'none';
     }
     
-    // Try to capture tab screenshot
-    await this.captureTabPreview(tab);
-  }
-
-  async captureTabPreview(tab) {
-    const screenshotImg = document.getElementById('tab-screenshot');
-    const placeholder = document.getElementById('preview-placeholder');
-    
-    try {
-      // Reset preview state
-      screenshotImg.style.display = 'none';
-      placeholder.style.display = 'flex';
-      
-      // Try to capture the tab (only works if tab is active)
-      if (tab.active) {
-        const dataUrl = await chrome.tabs.captureVisibleTab(tab.windowId, { format: 'png', quality: 50 });
-        screenshotImg.src = dataUrl;
-        screenshotImg.style.display = 'block';
-        placeholder.style.display = 'none';
-      } else {
-        // For inactive tabs, show a placeholder with domain
-        const url = new URL(tab.url);
-        placeholder.textContent = url.hostname;
-      }
-    } catch (error) {
-      // If capture fails, show URL domain as placeholder
-      try {
-        const url = new URL(tab.url);
-        placeholder.textContent = url.hostname;
-      } catch {
-        placeholder.textContent = '📄';
-      }
-    }
   }
 
   async closeCurrentTab() {

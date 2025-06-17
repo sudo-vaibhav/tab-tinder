@@ -4,9 +4,7 @@
   "version": "1.0",
   "description": "Swipe left or right to close tabs - Tinder for your browser tabs!",
   "permissions": [
-    "tabs",
-    "activeTab",
-    "tabCapture"
+    "tabs"
   ],
   "icons": {
     "16": "icon16.png",
